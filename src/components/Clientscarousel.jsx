@@ -43,50 +43,64 @@ const ClientsCarousel = () => {
   // Duplicate clients for infinite scroll effect
   const duplicatedClients = [...clients, ...clients, ...clients];
 
-  // Counting animation on scroll
+  // Fixed counting animation using requestAnimationFrame
   useEffect(() => {
-    let clientInterval, industryInterval, satisfactionInterval;
-    
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !hasAnimated) {
           setHasAnimated(true);
           
-          // Animate Happy Clients (200+)
-          let clientCounter = 0;
-          clientInterval = setInterval(() => {
-            clientCounter += 5;
-            if (clientCounter >= 200) {
-              setClientCount(200);
-              clearInterval(clientInterval);
+          const targetValues = {
+            clients: 200,
+            industries: 15,
+            satisfaction: 98
+          };
+          
+          const durations = {
+            clients: 1500, // 1.5 seconds
+            industries: 1500,
+            satisfaction: 1500
+          };
+          
+          const startTimes = {
+            clients: Date.now(),
+            industries: Date.now(),
+            satisfaction: Date.now()
+          };
+          
+          const animate = (type, setter, target, duration, startTime) => {
+            const now = Date.now();
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing function for smooth animation
+            const easeOutQuad = (t) => t * (2 - t);
+            const easedProgress = easeOutQuad(progress);
+            
+            const currentValue = Math.floor(easedProgress * target);
+            
+            setter(currentValue);
+            
+            if (progress < 1) {
+              requestAnimationFrame(() => 
+                animate(type, setter, target, duration, startTime)
+              );
             } else {
-              setClientCount(clientCounter);
+              // Ensure final value is exactly the target
+              setter(target);
             }
-          }, 20);
-
-          // Animate Industries (15+)
-          let industryCounter = 0;
-          industryInterval = setInterval(() => {
-            industryCounter += 1;
-            if (industryCounter >= 15) {
-              setIndustryCount(15);
-              clearInterval(industryInterval);
-            } else {
-              setIndustryCount(industryCounter);
-            }
-          }, 80);
-
-          // Animate Satisfaction Rate (98%)
-          let satisfactionCounter = 0;
-          satisfactionInterval = setInterval(() => {
-            satisfactionCounter += 2;
-            if (satisfactionCounter >= 98) {
-              setSatisfactionRate(98);
-              clearInterval(satisfactionInterval);
-            } else {
-              setSatisfactionRate(satisfactionCounter);
-            }
-          }, 20);
+          };
+          
+          // Start animations
+          requestAnimationFrame(() => 
+            animate('clients', setClientCount, targetValues.clients, durations.clients, startTimes.clients)
+          );
+          requestAnimationFrame(() => 
+            animate('industries', setIndustryCount, targetValues.industries, durations.industries, startTimes.industries)
+          );
+          requestAnimationFrame(() => 
+            animate('satisfaction', setSatisfactionRate, targetValues.satisfaction, durations.satisfaction, startTimes.satisfaction)
+          );
         }
       },
       { threshold: 0.1, rootMargin: '50px' }
@@ -100,9 +114,6 @@ const ClientsCarousel = () => {
       if (statsRef.current) {
         observer.unobserve(statsRef.current);
       }
-      clearInterval(clientInterval);
-      clearInterval(industryInterval);
-      clearInterval(satisfactionInterval);
     };
   }, [hasAnimated]);
 
