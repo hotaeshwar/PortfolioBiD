@@ -1,229 +1,405 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Sparkles, Code2, Palette, TrendingUp } from 'lucide-react';
+import React, { useEffect, useState, useRef } from 'react';
+import { ArrowRight, Sparkles, Code2, Palette, TrendingUp, Users, Award, Target } from 'lucide-react';
 
-const HeroPage = () => {
+const HeroPage = ({ scrollToClients }) => {
   const [projectCount, setProjectCount] = useState(0);
   const [successRate, setSuccessRate] = useState(0);
   const [clientCount, setClientCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
   const statsRef = useRef(null);
 
-  // Counting animation with cleanup
-  useEffect(() => {
-    let projectInterval, successInterval, clientInterval;
-    
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-          
-          // Animate Projects (500)
-          let projectCounter = 0;
-          projectInterval = setInterval(() => {
-            projectCounter += 10;
-            if (projectCounter >= 500) {
-              setProjectCount(500);
-              clearInterval(projectInterval);
-            } else {
-              setProjectCount(projectCounter);
-            }
-          }, 20);
+  // Animate counters function
+  const animateCounters = () => {
+    if (hasAnimated) return;
+    setHasAnimated(true);
 
-          // Animate Success Rate (98%)
-          let successCounter = 0;
-          successInterval = setInterval(() => {
-            successCounter += 2;
-            if (successCounter >= 98) {
-              setSuccessRate(98);
-              clearInterval(successInterval);
-            } else {
-              setSuccessRate(successCounter);
-            }
-          }, 20);
-
-          // Animate Clients (200)
-          let clientCounter = 0;
-          clientInterval = setInterval(() => {
-            clientCounter += 5;
-            if (clientCounter >= 200) {
-              setClientCount(200);
-              clearInterval(clientInterval);
-            } else {
-              setClientCount(clientCounter);
-            }
-          }, 20);
-        }
-      },
-      { threshold: 0.1, rootMargin: '50px' }
-    );
-
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
-    }
-
-    return () => {
-      if (statsRef.current) {
-        observer.unobserve(statsRef.current);
+    // Animate Projects (500+)
+    let projectCounter = 0;
+    const projectInterval = setInterval(() => {
+      projectCounter += 10;
+      if (projectCounter >= 500) {
+        setProjectCount(500);
+        clearInterval(projectInterval);
+      } else {
+        setProjectCount(projectCounter);
       }
-      clearInterval(projectInterval);
-      clearInterval(successInterval);
-      clearInterval(clientInterval);
-    };
-  }, [hasAnimated]);
+    }, 20);
+
+    // Animate Success Rate (98%)
+    let successCounter = 0;
+    const successInterval = setInterval(() => {
+      successCounter += 2;
+      if (successCounter >= 98) {
+        setSuccessRate(98);
+        clearInterval(successInterval);
+      } else {
+        setSuccessRate(successCounter);
+      }
+    }, 20);
+
+    // Animate Clients (200+)
+    let clientCounter = 0;
+    const clientInterval = setInterval(() => {
+      clientCounter += 5;
+      if (clientCounter >= 200) {
+        setClientCount(200);
+        clearInterval(clientInterval);
+      } else {
+        setClientCount(clientCounter);
+      }
+    }, 20);
+  };
+
+  // Trigger animation on mount
+  useEffect(() => {
+    animateCounters();
+  }, []);
+
+  // Handle Our Clients button click
+  const handleClientsClick = (e) => {
+    e.preventDefault();
+    if (scrollToClients) {
+      scrollToClients();
+    } else {
+      const clientsSection = document.getElementById('clients');
+      if (clientsSection) {
+        clientsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white overflow-hidden pt-16 sm:pt-20 lg:pt-24">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] opacity-40" />
+    <div className="relative min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 overflow-hidden py-12">
+      {/* SEO-Optimized Header Section */}
+      <header className="sr-only">
+        <h1>Leading Website & App Development Agency in India | Building India Digital</h1>
+        <p>Expert SEO-Friendly Website Development, Mobile App Development & Digital Marketing Services</p>
+      </header>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12">
-        <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 items-start lg:items-center max-w-7xl mx-auto">
-          
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-20 left-40 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
           {/* Left Content Section */}
-          <div className="space-y-3 lg:space-y-4">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-orange-500/10 border border-orange-500/20 backdrop-blur-sm">
-              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-orange-400" />
-              <span className="text-xs sm:text-sm font-medium text-orange-400">
-                Award-Winning Digital Agency
+          <div className="space-y-6 z-10">
+            {/* Trust Badge */}
+            <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-blue-100">
+              <Sparkles className="w-4 h-4 text-blue-600" />
+              <span className="text-sm font-semibold text-black">
+                India's Trusted Digital Partner
               </span>
             </div>
 
-            {/* Main Heading */}
-            <div className="space-y-1.5 lg:space-y-2">
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
-                <span className="block text-white">Building India's</span>
-                <span className="block bg-gradient-to-r from-orange-500 via-blue-500 to-green-500 bg-clip-text text-transparent">
-                  Digital Future
-                </span>
-                <span className="block text-white">Together</span>
-              </h1>
-              
-              <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-xl">
-                We blend cutting-edge technology with creative brilliance to craft digital solutions that don't just reach audiences—they transform businesses and empower communities.
+            {/* SEO-Optimized Main Heading */}
+            <div>
+              <h2 className="text-4xl lg:text-5xl font-bold text-black leading-tight mb-4">
+                We Build{' '}
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  Websites, Apps
+                </span>{' '}
+                & Digital Success For Your Business Growth
+              </h2>
+              <p className="text-base text-black leading-relaxed">
+                Building India Digital specializes in creating SEO-optimized websites, 
+                high-performance mobile apps, and result-driven digital marketing campaigns 
+                that help businesses scale online and achieve measurable growth.
               </p>
             </div>
 
-            {/* Stats with Counting Animation - Fixed height to prevent shift */}
-            <div ref={statsRef} className="grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 py-2 lg:py-3">
-              <div className="text-center lg:text-left">
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-orange-500 min-h-[2.5rem] sm:min-h-[3rem] lg:min-h-[3.5rem] flex items-center justify-center lg:justify-start">
+            {/* Key Services - SEO Keywords */}
+            <div className="flex flex-wrap gap-3">
+              {[
+                { icon: Code2, text: 'Website Development' },
+                { icon: Sparkles, text: 'App Development' },
+                { icon: TrendingUp, text: 'SEO Services' },
+                { icon: Palette, text: 'Digital Marketing' }
+              ].map((service, index) => (
+                <div 
+                  key={index}
+                  className="flex items-center space-x-2 bg-white px-4 py-2 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100"
+                >
+                  <service.icon className="w-4 h-4 text-blue-600" />
+                  <span className="text-sm font-medium text-black">{service.text}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Stats with Counting Animation */}
+            <div ref={statsRef} className="grid grid-cols-3 gap-4 pt-4">
+              <div className="text-center">
+                <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   {projectCount}+
                 </div>
-                <div className="text-xs sm:text-sm text-slate-400 mt-1">Projects</div>
+                <div className="text-sm text-black mt-1">Projects Delivered</div>
               </div>
-              <div className="text-center lg:text-left">
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-500 min-h-[2.5rem] sm:min-h-[3rem] lg:min-h-[3.5rem] flex items-center justify-center lg:justify-start">
+              <div className="text-center">
+                <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   {successRate}%
                 </div>
-                <div className="text-xs sm:text-sm text-slate-400 mt-1">Success Rate</div>
+                <div className="text-sm text-black mt-1">Client Satisfaction</div>
               </div>
-              <div className="text-center lg:text-left">
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-green-500 min-h-[2.5rem] sm:min-h-[3rem] lg:min-h-[3.5rem] flex items-center justify-center lg:justify-start">
+              <div className="text-center">
+                <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   {clientCount}+
                 </div>
-                <div className="text-xs sm:text-sm text-slate-400 mt-1">Happy Clients</div>
+                <div className="text-sm text-black mt-1">Happy Clients</div>
               </div>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <button className="group px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg sm:rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/30">
-                <span className="flex items-center justify-center gap-2 text-sm sm:text-base">
-                  Start Your Project
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+            {/* CTA Buttons with Enhanced Hover Animations */}
+            <div className="flex flex-wrap gap-4 pt-2">
+              <button className="group relative px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden">
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
+                <span className="relative flex items-center">
+                  View Our Work
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
               </button>
-              
-              <a 
-                href="https://www.buildingindiadigital.com/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="px-6 py-3 sm:px-8 sm:py-4 border-2 border-blue-600 rounded-lg sm:rounded-xl font-semibold hover:bg-blue-600/10 transition-all duration-300 text-sm sm:text-base inline-block text-center"
+
+              <button 
+                onClick={handleClientsClick}
+                className="group relative px-8 py-3 bg-white text-black rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-gray-200 overflow-hidden"
               >
-                View Our Work
-              </a>
+                <span className="relative flex items-center">
+                  Our Clients
+                  <Users className="ml-2 w-5 h-5 group-hover:scale-110 transition-transform" />
+                </span>
+                {/* Background slide effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left -z-10"></div>
+              </button>
             </div>
 
-            {/* Service Icons */}
-            <div className="flex flex-wrap gap-3 sm:gap-4 lg:gap-6 pt-1">
-              <div className="flex items-center gap-2 text-slate-400 hover:text-orange-400 transition-colors cursor-pointer">
-                <div className="p-1.5 sm:p-2 rounded-lg bg-orange-500/10 border border-orange-500/20">
-                  <Code2 className="w-4 h-4 sm:w-5 sm:h-5" />
+            {/* Trust Indicators */}
+            <div className="flex items-center space-x-8 pt-4 border-t border-gray-200">
+              <div className="flex items-center space-x-2">
+                <Award className="w-5 h-5 text-blue-600" />
+                <div>
+                  <div className="text-sm font-semibold text-black">200+ Brands Trust Us</div>
+                  <div className="text-xs text-gray-600">Across 15+ Industries</div>
                 </div>
-                <span className="text-xs sm:text-sm font-medium">Digital Marketing</span>
               </div>
-              <div className="flex items-center gap-2 text-slate-400 hover:text-blue-400 transition-colors cursor-pointer">
-                <div className="p-1.5 sm:p-2 rounded-lg bg-blue-600/10 border border-blue-600/20">
-                  <Palette className="w-4 h-4 sm:w-5 sm:h-5" />
+              <div className="flex items-center space-x-2">
+                <Users className="w-5 h-5 text-purple-600" />
+                <div>
+                  <div className="text-sm font-semibold text-black">Expert Team</div>
+                  <div className="text-xs text-gray-600">Delivering Excellence</div>
                 </div>
-                <span className="text-xs sm:text-sm font-medium">Brand Design</span>
-              </div>
-              <div className="flex items-center gap-2 text-slate-400 hover:text-green-400 transition-colors cursor-pointer">
-                <div className="p-1.5 sm:p-2 rounded-lg bg-green-500/10 border border-green-500/20">
-                  <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" />
-                </div>
-                <span className="text-xs sm:text-sm font-medium">Growth Strategy</span>
               </div>
             </div>
           </div>
 
-          {/* Right Side - Code Visualization */}
-          <div className="mt-4 lg:mt-0 lg:sticky lg:top-20">
-            {/* Main code container */}
-            <div className="bg-slate-900/95 backdrop-blur-xl border border-slate-700/50 rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-2xl shadow-blue-500/10">
-              {/* Terminal header */}
-              <div className="flex items-center gap-2 mb-4 sm:mb-6 pb-3 sm:pb-4 border-b border-slate-700/50">
-                <div className="flex gap-1.5 sm:gap-2">
-                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80" />
-                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80" />
-                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80" />
-                </div>
-                <div className="ml-2 sm:ml-4 text-[10px] sm:text-xs text-slate-500 font-mono">building-india-digital.js</div>
-                <div className="ml-auto flex items-center gap-1.5 sm:gap-2">
-                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-[10px] sm:text-xs text-slate-500">Running</span>
+          {/* Right Side - Success Dashboard */}
+          <div className="relative lg:pl-8 z-10">
+            <div className="relative bg-white rounded-3xl shadow-2xl p-6 max-w-lg mx-auto">
+              {/* Header */}
+              <div className="flex items-center justify-between mb-5">
+                <h3 className="text-xl font-bold text-black">Our Growth Dashboard</h3>
+                <div className="flex items-center space-x-2">
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="text-sm text-black font-medium">Live</span>
                 </div>
               </div>
 
-              {/* Code content */}
-              <div className="font-mono text-xs sm:text-sm lg:text-base overflow-x-auto">
-                <pre className="text-slate-300 leading-relaxed">
-                  <code>
-                    <span className="text-orange-400">const</span> <span className="text-blue-400">buildIndia</span> <span className="text-slate-400">=</span> <span className="text-green-400">{'() =>'}</span> <span className="text-slate-400">{'{'}</span>{'\n'}
-                    <span className="text-orange-400">  const</span> <span className="text-white">vision</span> <span className="text-slate-400">=</span> <span className="text-green-400">createDigitalFuture</span><span className="text-slate-400">();</span>{'\n'}
-                    <span className="text-orange-400">  const</span> <span className="text-white">innovation</span> <span className="text-slate-400">=</span> <span className="text-green-400">empowerBusiness</span><span className="text-slate-400">(</span><span className="text-white">vision</span><span className="text-slate-400">);</span>{'\n'}
-                    <span className="text-orange-400">  const</span> <span className="text-white">impact</span> <span className="text-slate-400">=</span> <span className="text-green-400">transformIndia</span><span className="text-slate-400">(</span><span className="text-white">innovation</span><span className="text-slate-400">);</span>{'\n'}
-                    {'\n'}
-                    <span className="text-orange-400">  return</span> <span className="text-slate-400">{'{'}</span>{'\n'}
-                    <span className="text-blue-400">    projects</span><span className="text-slate-400">:</span> <span className="text-orange-300">500</span><span className="text-slate-400">,</span>{'\n'}
-                    <span className="text-blue-400">    success</span><span className="text-slate-400">:</span> <span className="text-orange-300">98</span><span className="text-slate-400">,</span>{'\n'}
-                    <span className="text-blue-400">    clients</span><span className="text-slate-400">:</span> <span className="text-orange-300">200</span><span className="text-slate-400">,</span>{'\n'}
-                    <span className="text-blue-400">    mission</span><span className="text-slate-400">:</span> <span className="text-green-300">'Digital India'</span>{'\n'}
-                    <span className="text-slate-400">  {'}'}</span><span className="text-slate-400">;</span>{'\n'}
-                    <span className="text-slate-400">{'}'}</span><span className="text-slate-400">;</span>{'\n'}
-                    {'\n'}
-                    <span className="text-slate-500">// Building tomorrow, today</span>{'\n'}
-                    <span className="text-blue-400">buildIndia</span><span className="text-slate-400">().</span><span className="text-green-400">execute</span><span className="text-slate-400">();</span>
-                  </code>
-                </pre>
+              {/* Metrics Grid */}
+              <div className="grid grid-cols-2 gap-3 mb-5">
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-3 animate-slideInLeft">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs text-black font-medium">Website Traffic</span>
+                    <TrendingUp className="w-4 h-4 text-blue-600" />
+                  </div>
+                  <div className="text-2xl font-bold text-blue-600">+245%</div>
+                  <div className="text-xs text-gray-600 mt-1">vs last month</div>
+                </div>
+
+                <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-3 animate-slideInRight">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs text-black font-medium">Conversions</span>
+                    <Target className="w-4 h-4 text-purple-600" />
+                  </div>
+                  <div className="text-2xl font-bold text-purple-600">+180%</div>
+                  <div className="text-xs text-gray-600 mt-1">organic growth</div>
+                </div>
+
+                <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-3 animate-slideInLeft animation-delay-200">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs text-black font-medium">Revenue</span>
+                    <TrendingUp className="w-4 h-4 text-green-600" />
+                  </div>
+                  <div className="text-2xl font-bold text-green-600">+320%</div>
+                  <div className="text-xs text-gray-600 mt-1">business growth</div>
+                </div>
+
+                <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-3 animate-slideInRight animation-delay-200">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs text-black font-medium">ROI</span>
+                    <Award className="w-4 h-4 text-orange-600" />
+                  </div>
+                  <div className="text-2xl font-bold text-orange-600">5.2x</div>
+                  <div className="text-xs text-gray-600 mt-1">return average</div>
+                </div>
               </div>
 
-              {/* Terminal output */}
-              <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-700/50">
-                <div className="flex items-start gap-2 text-xs sm:text-sm">
-                  <span className="text-green-500">→</span>
-                  <div className="space-y-1">
-                    <div className="text-orange-400">✓ Vision initialized successfully</div>
-                    <div className="text-blue-400">✓ Innovation deployed across India</div>
-                    <div className="text-green-400">✓ Digital transformation complete</div>
+              {/* Progress Bars */}
+              <div className="space-y-3 mb-5 animate-fadeInUp animation-delay-300">
+                <div>
+                  <div className="flex justify-between text-xs mb-1.5">
+                    <span className="text-black font-medium">SEO Score</span>
+                    <span className="font-semibold text-green-600">95/100</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                    <div className="bg-gradient-to-r from-green-500 to-green-600 h-2 rounded-full animate-progressBar" style={{width: '95%'}}></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between text-xs mb-1.5">
+                    <span className="text-black font-medium">Performance</span>
+                    <span className="font-semibold text-blue-600">92/100</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                    <div className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full animate-progressBar animation-delay-200" style={{width: '92%'}}></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between text-xs mb-1.5">
+                    <span className="text-black font-medium">User Experience</span>
+                    <span className="font-semibold text-purple-600">98/100</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                    <div className="bg-gradient-to-r from-purple-500 to-purple-600 h-2 rounded-full animate-progressBar animation-delay-400" style={{width: '98%'}}></div>
                   </div>
                 </div>
               </div>
+
+              {/* Bottom notification */}
+              <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-4 text-white animate-fadeInUp animation-delay-500">
+                <div className="flex items-start space-x-3">
+                  <Award className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="font-semibold mb-1 text-sm">Our Success Story!</div>
+                    <div className="text-xs opacity-90">Join 200+ businesses achieving exceptional growth with us</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating decorative elements */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-500 rounded-full opacity-10 blur-2xl animate-pulse"></div>
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-purple-500 rounded-full opacity-10 blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* CSS Animations */}
+      <style jsx>{`
+        @keyframes blob {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          25% { transform: translate(20px, -50px) scale(1.1); }
+          50% { transform: translate(-20px, 20px) scale(0.9); }
+          75% { transform: translate(50px, 50px) scale(1.05); }
+        }
+
+        @keyframes slideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes progressBar {
+          from {
+            width: 0%;
+          }
+        }
+
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+
+        .animate-slideInLeft {
+          animation: slideInLeft 0.6s ease-out forwards;
+        }
+
+        .animate-slideInRight {
+          animation: slideInRight 0.6s ease-out forwards;
+        }
+
+        .animate-fadeInUp {
+          animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .animate-progressBar {
+          animation: progressBar 1.5s ease-out forwards;
+        }
+
+        .animation-delay-200 {
+          animation-delay: 0.2s;
+        }
+
+        .animation-delay-300 {
+          animation-delay: 0.3s;
+        }
+
+        .animation-delay-400 {
+          animation-delay: 0.4s;
+        }
+
+        .animation-delay-500 {
+          animation-delay: 0.5s;
+        }
+
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+      `}</style>
+
+      {/* SEO-Optimized Footer Schema */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Building India Digital",
+          "description": "Leading Website & App Development Agency in India",
+          "url": "https://buildingindia.digital"
+        })}
+      </script>
     </div>
   );
 };

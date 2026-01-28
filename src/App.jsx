@@ -1,34 +1,24 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import HeroPage from './components/Hero';
-import Services from './components/Services';
-import Work from './components/Work';
-import WhyChooseUs from './components/Whychooseus';
-import ContactUs from './components/Contactus';
+import Clientscarousel from './components/Clientscarousel';
+import OurWork from './components/OurWork';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-
-      <section id="home">
+      
+      <section id="hero" className="w-full">
         <HeroPage />
       </section>
-
-      <section id="services">
-        <Services />
+      
+      <section id="our-work" className="w-full">
+        <OurWork />
       </section>
-
-      <section id="work">
-        <Work />
-      </section>
-
-      <section id="why-choose-us">
-        <WhyChooseUs />
-      </section>
-
-      <section id="contact">
-        <ContactUs />
+      
+      <section id="clients" className="w-full">
+        <Clientscarousel />
       </section>
     </div>
   );

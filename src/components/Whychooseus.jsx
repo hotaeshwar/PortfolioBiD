@@ -22,85 +22,67 @@ const WhyChooseUs = () => {
   const [satisfactionRate, setSatisfactionRate] = useState(0);
   const [clientCount, setClientCount] = useState(0);
   const [yearsExp, setYearsExp] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const statsRef = useRef(null);
   const observerRef = useRef(null);
 
-  // Counting animation for stats
+  // Counting animation on component mount
   useEffect(() => {
     let projectInterval, satisfactionInterval, clientInterval, yearsInterval;
     
-    const statsObserver = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-          
-          // Animate Projects (500+)
-          let projectCounter = 0;
-          projectInterval = setInterval(() => {
-            projectCounter += 10;
-            if (projectCounter >= 500) {
-              setProjectCount(500);
-              clearInterval(projectInterval);
-            } else {
-              setProjectCount(projectCounter);
-            }
-          }, 15);
+    // Animate Projects (500+)
+    let projectCounter = 0;
+    projectInterval = setInterval(() => {
+      projectCounter += 10;
+      if (projectCounter >= 500) {
+        setProjectCount(500);
+        clearInterval(projectInterval);
+      } else {
+        setProjectCount(projectCounter);
+      }
+    }, 15);
 
-          // Animate Satisfaction Rate (98%)
-          let satisfactionCounter = 0;
-          satisfactionInterval = setInterval(() => {
-            satisfactionCounter += 2;
-            if (satisfactionCounter >= 98) {
-              setSatisfactionRate(98);
-              clearInterval(satisfactionInterval);
-            } else {
-              setSatisfactionRate(satisfactionCounter);
-            }
-          }, 20);
+    // Animate Satisfaction Rate (98%)
+    let satisfactionCounter = 0;
+    satisfactionInterval = setInterval(() => {
+      satisfactionCounter += 2;
+      if (satisfactionCounter >= 98) {
+        setSatisfactionRate(98);
+        clearInterval(satisfactionInterval);
+      } else {
+        setSatisfactionRate(satisfactionCounter);
+      }
+    }, 20);
 
-          // Animate Clients (200+)
-          let clientCounter = 0;
-          clientInterval = setInterval(() => {
-            clientCounter += 5;
-            if (clientCounter >= 200) {
-              setClientCount(200);
-              clearInterval(clientInterval);
-            } else {
-              setClientCount(clientCounter);
-            }
-          }, 15);
+    // Animate Clients (200+)
+    let clientCounter = 0;
+    clientInterval = setInterval(() => {
+      clientCounter += 5;
+      if (clientCounter >= 200) {
+        setClientCount(200);
+        clearInterval(clientInterval);
+      } else {
+        setClientCount(clientCounter);
+      }
+    }, 15);
 
-          // Animate Years (12+)
-          let yearsCounter = 0;
-          yearsInterval = setInterval(() => {
-            yearsCounter += 1;
-            if (yearsCounter >= 12) {
-              setYearsExp(12);
-              clearInterval(yearsInterval);
-            } else {
-              setYearsExp(yearsCounter);
-            }
-          }, 100);
-        }
-      },
-      { threshold: 0.1, rootMargin: '50px' }
-    );
-
-    if (statsRef.current) {
-      statsObserver.observe(statsRef.current);
-    }
+    // Animate Years (12+)
+    let yearsCounter = 0;
+    yearsInterval = setInterval(() => {
+      yearsCounter += 1;
+      if (yearsCounter >= 12) {
+        setYearsExp(12);
+        clearInterval(yearsInterval);
+      } else {
+        setYearsExp(yearsCounter);
+      }
+    }, 100);
 
     return () => {
-      if (statsRef.current) {
-        statsObserver.unobserve(statsRef.current);
-      }
       clearInterval(projectInterval);
       clearInterval(satisfactionInterval);
       clearInterval(clientInterval);
       clearInterval(yearsInterval);
     };
-  }, [hasAnimated]);
+  }, []);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -188,13 +170,6 @@ const WhyChooseUs = () => {
     }
   ];
 
-  const stats = [
-    { number: "500+", label: "Projects Completed" },
-    { number: "98%", label: "Client Satisfaction" },
-    { number: "200+", label: "Happy Clients" },
-    { number: "12+", label: "Years Experience" }
-  ];
-
   const testimonials = [
     {
       name: "Dr. Rajesh Kumar",
@@ -253,7 +228,7 @@ const WhyChooseUs = () => {
           </p>
 
           {/* Stats Grid */}
-          <div ref={statsRef} className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
             <div className="p-8 md:p-12 rounded-2xl bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 text-center">
               <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-orange-500 mb-4">
                 {projectCount}+
