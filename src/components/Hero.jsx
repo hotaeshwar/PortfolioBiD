@@ -68,6 +68,15 @@ const HeroPage = ({ scrollToClients }) => {
     }
   };
 
+  // Handle View Our Work button click
+  const handleWorkClick = (e) => {
+    e.preventDefault();
+    const workSection = document.getElementById('our-work');
+    if (workSection) {
+      workSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 overflow-hidden py-12">
       {/* SEO-Optimized Header Section */}
@@ -153,7 +162,10 @@ const HeroPage = ({ scrollToClients }) => {
 
             {/* CTA Buttons with Enhanced Hover Animations */}
             <div className="flex flex-wrap gap-4 pt-2">
-              <button className="group relative px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden">
+              <button 
+                onClick={handleWorkClick}
+                className="group relative px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
+              >
                 {/* Shimmer effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
                 <span className="relative flex items-center">
