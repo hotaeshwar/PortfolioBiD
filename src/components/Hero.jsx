@@ -98,22 +98,22 @@ const HeroPage = ({ scrollToClients }) => {
           <div className="space-y-6 z-10">
             {/* Trust Badge */}
             <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-blue-100">
-              <Sparkles className="w-4 h-4 text-blue-600" />
-              <span className="text-sm font-semibold text-black">
+              <Sparkles className="w-4 h-4" style={{ color: '#63c000' }} />
+              <span className="text-sm font-semibold" style={{ color: '#012869' }}>
                 India's Trusted Digital Partner
               </span>
             </div>
 
             {/* SEO-Optimized Main Heading */}
             <div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-black leading-tight mb-4">
+              <h2 className="text-4xl lg:text-5xl font-bold leading-tight mb-4" style={{ color: '#012869' }}>
                 We Build{' '}
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#63c000] to-[#f98e09] bg-clip-text text-transparent">
                   Websites, Apps
                 </span>{' '}
                 & Digital Success For Your Business Growth
               </h2>
-              <p className="text-base text-black leading-relaxed">
+              <p className="text-base leading-relaxed" style={{ color: '#012869' }}>
                 Building India Digital specializes in creating SEO-optimized websites, 
                 high-performance mobile apps, and result-driven digital marketing campaigns 
                 that help businesses scale online and achieve measurable growth.
@@ -132,8 +132,8 @@ const HeroPage = ({ scrollToClients }) => {
                   key={index}
                   className="flex items-center space-x-2 bg-white px-4 py-2 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100"
                 >
-                  <service.icon className="w-4 h-4 text-blue-600" />
-                  <span className="text-sm font-medium text-black">{service.text}</span>
+                  <service.icon className="w-4 h-4" style={{ color: '#63c000' }} />
+                  <span className="text-sm font-medium" style={{ color: '#012869' }}>{service.text}</span>
                 </div>
               ))}
             </div>
@@ -141,22 +141,22 @@ const HeroPage = ({ scrollToClients }) => {
             {/* Stats with Counting Animation */}
             <div ref={statsRef} className="grid grid-cols-3 gap-4 pt-4">
               <div className="text-center">
-                <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <div className="text-3xl font-bold bg-gradient-to-r from-[#63c000] to-[#f98e09] bg-clip-text text-transparent">
                   {projectCount}+
                 </div>
-                <div className="text-sm text-black mt-1">Projects Delivered</div>
+                <div className="text-sm mt-1" style={{ color: '#012869' }}>Projects Delivered</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <div className="text-3xl font-bold bg-gradient-to-r from-[#63c000] to-[#f98e09] bg-clip-text text-transparent">
                   {successRate}%
                 </div>
-                <div className="text-sm text-black mt-1">Client Satisfaction</div>
+                <div className="text-sm mt-1" style={{ color: '#012869' }}>Client Satisfaction</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <div className="text-3xl font-bold bg-gradient-to-r from-[#63c000] to-[#f98e09] bg-clip-text text-transparent">
                   {clientCount}+
                 </div>
-                <div className="text-sm text-black mt-1">Happy Clients</div>
+                <div className="text-sm mt-1" style={{ color: '#012869' }}>Happy Clients</div>
               </div>
             </div>
 
@@ -164,7 +164,8 @@ const HeroPage = ({ scrollToClients }) => {
             <div className="flex flex-wrap gap-4 pt-2">
               <button 
                 onClick={handleWorkClick}
-                className="group relative px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
+                className="group relative px-8 py-3 text-white rounded-xl font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
+                style={{ background: 'linear-gradient(to right, #63c000, #f98e09)' }}
               >
                 {/* Shimmer effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
@@ -176,31 +177,32 @@ const HeroPage = ({ scrollToClients }) => {
 
               <button 
                 onClick={handleClientsClick}
-                className="group relative px-8 py-3 bg-white text-black rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-gray-200 overflow-hidden"
+                className="group relative px-8 py-3 bg-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 overflow-hidden"
+                style={{ color: '#012869', borderColor: '#63c000' }}
               >
                 <span className="relative flex items-center">
                   Our Clients
                   <Users className="ml-2 w-5 h-5 group-hover:scale-110 transition-transform" />
                 </span>
                 {/* Background slide effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left -z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-green-50 to-orange-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left -z-10"></div>
               </button>
             </div>
 
             {/* Trust Indicators */}
             <div className="flex items-center space-x-8 pt-4 border-t border-gray-200">
               <div className="flex items-center space-x-2">
-                <Award className="w-5 h-5 text-blue-600" />
+                <Award className="w-5 h-5" style={{ color: '#63c000' }} />
                 <div>
-                  <div className="text-sm font-semibold text-black">200+ Brands Trust Us</div>
-                  <div className="text-xs text-gray-600">Across 15+ Industries</div>
+                  <div className="text-sm font-semibold" style={{ color: '#012869' }}>200+ Brands Trust Us</div>
+                  <div className="text-xs" style={{ color: '#f98e09' }}>Across 15+ Industries</div>
                 </div>
               </div>
               <div className="flex items-center space-x-2">
-                <Users className="w-5 h-5 text-purple-600" />
+                <Users className="w-5 h-5" style={{ color: '#f98e09' }} />
                 <div>
-                  <div className="text-sm font-semibold text-black">Expert Team</div>
-                  <div className="text-xs text-gray-600">Delivering Excellence</div>
+                  <div className="text-sm font-semibold" style={{ color: '#012869' }}>Expert Team</div>
+                  <div className="text-xs" style={{ color: '#63c000' }}>Delivering Excellence</div>
                 </div>
               </div>
             </div>
@@ -211,10 +213,10 @@ const HeroPage = ({ scrollToClients }) => {
             <div className="relative bg-white rounded-3xl shadow-2xl p-6 max-w-lg mx-auto">
               {/* Header */}
               <div className="flex items-center justify-between mb-5">
-                <h3 className="text-xl font-bold text-black">Our Growth Dashboard</h3>
+                <h3 className="text-xl font-bold" style={{ color: '#012869' }}>Our Growth Dashboard</h3>
                 <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-black font-medium">Live</span>
+                  <div className="w-3 h-3 rounded-full animate-pulse" style={{ backgroundColor: '#63c000' }}></div>
+                  <span className="text-sm font-medium" style={{ color: '#012869' }}>Live</span>
                 </div>
               </div>
 
@@ -222,37 +224,37 @@ const HeroPage = ({ scrollToClients }) => {
               <div className="grid grid-cols-2 gap-3 mb-5">
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-3 animate-slideInLeft">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs text-black font-medium">Website Traffic</span>
-                    <TrendingUp className="w-4 h-4 text-blue-600" />
+                    <span className="text-xs font-medium" style={{ color: '#012869' }}>Website Traffic</span>
+                    <TrendingUp className="w-4 h-4" style={{ color: '#63c000' }} />
                   </div>
-                  <div className="text-2xl font-bold text-blue-600">+245%</div>
+                  <div className="text-2xl font-bold" style={{ color: '#63c000' }}>+245%</div>
                   <div className="text-xs text-gray-600 mt-1">vs last month</div>
                 </div>
 
                 <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-3 animate-slideInRight">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs text-black font-medium">Conversions</span>
-                    <Target className="w-4 h-4 text-purple-600" />
+                    <span className="text-xs font-medium" style={{ color: '#012869' }}>Conversions</span>
+                    <Target className="w-4 h-4" style={{ color: '#f98e09' }} />
                   </div>
-                  <div className="text-2xl font-bold text-purple-600">+180%</div>
+                  <div className="text-2xl font-bold" style={{ color: '#f98e09' }}>+180%</div>
                   <div className="text-xs text-gray-600 mt-1">organic growth</div>
                 </div>
 
                 <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-3 animate-slideInLeft animation-delay-200">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs text-black font-medium">Revenue</span>
-                    <TrendingUp className="w-4 h-4 text-green-600" />
+                    <span className="text-xs font-medium" style={{ color: '#012869' }}>Revenue</span>
+                    <TrendingUp className="w-4 h-4" style={{ color: '#63c000' }} />
                   </div>
-                  <div className="text-2xl font-bold text-green-600">+320%</div>
+                  <div className="text-2xl font-bold" style={{ color: '#63c000' }}>+320%</div>
                   <div className="text-xs text-gray-600 mt-1">business growth</div>
                 </div>
 
                 <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-3 animate-slideInRight animation-delay-200">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs text-black font-medium">ROI</span>
-                    <Award className="w-4 h-4 text-orange-600" />
+                    <span className="text-xs font-medium" style={{ color: '#012869' }}>ROI</span>
+                    <Award className="w-4 h-4" style={{ color: '#f98e09' }} />
                   </div>
-                  <div className="text-2xl font-bold text-orange-600">5.2x</div>
+                  <div className="text-2xl font-bold" style={{ color: '#f98e09' }}>5.2x</div>
                   <div className="text-xs text-gray-600 mt-1">return average</div>
                 </div>
               </div>
@@ -261,37 +263,37 @@ const HeroPage = ({ scrollToClients }) => {
               <div className="space-y-3 mb-5 animate-fadeInUp animation-delay-300">
                 <div>
                   <div className="flex justify-between text-xs mb-1.5">
-                    <span className="text-black font-medium">SEO Score</span>
-                    <span className="font-semibold text-green-600">95/100</span>
+                    <span className="font-medium" style={{ color: '#012869' }}>SEO Score</span>
+                    <span className="font-semibold" style={{ color: '#63c000' }}>95/100</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-                    <div className="bg-gradient-to-r from-green-500 to-green-600 h-2 rounded-full animate-progressBar" style={{width: '95%'}}></div>
+                    <div className="h-2 rounded-full animate-progressBar" style={{ width: '95%', background: 'linear-gradient(to right, #63c000, #63c000)' }}></div>
                   </div>
                 </div>
 
                 <div>
                   <div className="flex justify-between text-xs mb-1.5">
-                    <span className="text-black font-medium">Performance</span>
-                    <span className="font-semibold text-blue-600">92/100</span>
+                    <span className="font-medium" style={{ color: '#012869' }}>Performance</span>
+                    <span className="font-semibold" style={{ color: '#012869' }}>92/100</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-                    <div className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full animate-progressBar animation-delay-200" style={{width: '92%'}}></div>
+                    <div className="h-2 rounded-full animate-progressBar animation-delay-200" style={{ width: '92%', background: 'linear-gradient(to right, #012869, #012869)' }}></div>
                   </div>
                 </div>
 
                 <div>
                   <div className="flex justify-between text-xs mb-1.5">
-                    <span className="text-black font-medium">User Experience</span>
-                    <span className="font-semibold text-purple-600">98/100</span>
+                    <span className="font-medium" style={{ color: '#012869' }}>User Experience</span>
+                    <span className="font-semibold" style={{ color: '#f98e09' }}>98/100</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-                    <div className="bg-gradient-to-r from-purple-500 to-purple-600 h-2 rounded-full animate-progressBar animation-delay-400" style={{width: '98%'}}></div>
+                    <div className="h-2 rounded-full animate-progressBar animation-delay-400" style={{ width: '98%', background: 'linear-gradient(to right, #f98e09, #f98e09)' }}></div>
                   </div>
                 </div>
               </div>
 
               {/* Bottom notification */}
-              <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-4 text-white animate-fadeInUp animation-delay-500">
+              <div className="rounded-xl p-4 text-white animate-fadeInUp animation-delay-500" style={{ background: 'linear-gradient(to right, #63c000, #f98e09)' }}>
                 <div className="flex items-start space-x-3">
                   <Award className="w-5 h-5 mt-0.5 flex-shrink-0" />
                   <div>
@@ -302,8 +304,8 @@ const HeroPage = ({ scrollToClients }) => {
               </div>
 
               {/* Floating decorative elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-500 rounded-full opacity-10 blur-2xl animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-purple-500 rounded-full opacity-10 blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full opacity-10 blur-2xl animate-pulse" style={{ backgroundColor: '#63c000' }}></div>
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 rounded-full opacity-10 blur-3xl animate-pulse" style={{ backgroundColor: '#f98e09', animationDelay: '1s' }}></div>
             </div>
           </div>
         </div>
