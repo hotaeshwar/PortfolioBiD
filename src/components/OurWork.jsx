@@ -31,9 +31,9 @@ const OurWork = () => {
       description: "Professional car detailing service website with online booking system, service packages, and customer portal",
       url: "https://actioncardetailing.ca",
       icon: Globe,
-      gradient: "from-orange-500 via-red-500 to-pink-500",
-      glowColor: "shadow-orange-500/50",
-      borderGlow: "group-hover:shadow-[0_0_30px_rgba(249,115,22,0.3)]",
+      gradient: "from-[#63c000] via-[#f98e09] to-[#012869]",
+      glowColor: "shadow-[#63c000]/50",
+      borderGlow: "group-hover:shadow-[0_0_30px_rgba(99,192,0,0.3)]",
       highlights: [
         "Responsive Design",
         "SEO Optimized",
@@ -53,9 +53,9 @@ const OurWork = () => {
       type: "iOS & Android Applications",
       description: "Custom mobile applications with native performance, seamless UX, and scalable backend solutions for diverse industries",
       icon: Smartphone,
-      gradient: "from-blue-500 via-purple-500 to-indigo-500",
-      glowColor: "shadow-blue-500/50",
-      borderGlow: "group-hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]",
+      gradient: "from-[#012869] via-[#63c000] to-[#f98e09]",
+      glowColor: "shadow-[#012869]/50",
+      borderGlow: "group-hover:shadow-[0_0_30px_rgba(1,40,105,0.3)]",
       highlights: [
         "Native Performance",
         "Cross-Platform",
@@ -75,16 +75,16 @@ const OurWork = () => {
       name: "Facebook",
       url: "https://www.facebook.com/profile.php?id=100087588905846",
       icon: Facebook,
-      gradient: "from-blue-600 to-blue-700",
-      glowColor: "group-hover:shadow-[0_0_25px_rgba(37,99,235,0.3)]",
+      gradient: "from-[#012869] to-[#63c000]",
+      glowColor: "group-hover:shadow-[0_0_25px_rgba(1,40,105,0.3)]",
       followers: "2K+"
     },
     {
       name: "Instagram",
       url: "https://www.instagram.com/buildingindiadigital/",
       icon: Instagram,
-      gradient: "from-pink-500 via-purple-500 to-orange-500",
-      glowColor: "group-hover:shadow-[0_0_25px_rgba(236,72,153,0.3)]",
+      gradient: "from-[#f98e09] via-[#63c000] to-[#012869]",
+      glowColor: "group-hover:shadow-[0_0_25px_rgba(249,142,9,0.3)]",
       followers: "5K+"
     }
   ];
@@ -95,48 +95,48 @@ const OurWork = () => {
       title: "Google Ads PPC", 
       desc: "ROI-focused PPC campaigns with conversion tracking", 
       stats: "95% Success",
-      gradient: "from-emerald-500 to-teal-600",
-      glowColor: "group-hover:shadow-[0_0_20px_rgba(16,185,129,0.2)]"
+      gradient: "from-[#63c000] to-[#f98e09]",
+      glowColor: "group-hover:shadow-[0_0_20px_rgba(99,192,0,0.2)]"
     },
     { 
       icon: Globe, 
       title: "GMB Optimization", 
       desc: "Local SEO & review management services", 
       stats: "+180% Visibility",
-      gradient: "from-blue-500 to-cyan-600",
-      glowColor: "group-hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]"
+      gradient: "from-[#012869] to-[#63c000]",
+      glowColor: "group-hover:shadow-[0_0_20px_rgba(1,40,105,0.2)]"
     },
     { 
       icon: Instagram, 
       title: "Social Media", 
       desc: "Instagram, Facebook & YouTube marketing", 
       stats: "+250% Engagement",
-      gradient: "from-pink-500 to-rose-600",
-      glowColor: "group-hover:shadow-[0_0_20px_rgba(236,72,153,0.2)]"
+      gradient: "from-[#f98e09] to-[#012869]",
+      glowColor: "group-hover:shadow-[0_0_20px_rgba(249,142,9,0.2)]"
     },
     { 
       icon: Camera, 
       title: "Organic Photoshoot", 
       desc: "Professional brand photography & lifestyle shoots", 
       stats: "Premium Quality",
-      gradient: "from-purple-500 to-indigo-600",
-      glowColor: "group-hover:shadow-[0_0_20px_rgba(168,85,247,0.2)]"
+      gradient: "from-[#63c000] to-[#012869]",
+      glowColor: "group-hover:shadow-[0_0_20px_rgba(99,192,0,0.2)]"
     },
     { 
       icon: Star, 
       title: "Viral Reels", 
       desc: "Instagram & Facebook reels creation", 
       stats: "50K+ Avg Views",
-      gradient: "from-orange-500 to-red-600",
-      glowColor: "group-hover:shadow-[0_0_20px_rgba(249,115,22,0.2)]"
+      gradient: "from-[#f98e09] to-[#63c000]",
+      glowColor: "group-hover:shadow-[0_0_20px_rgba(249,142,9,0.2)]"
     },
     { 
       icon: Sparkles, 
       title: "Graphic Design", 
       desc: "Custom social media graphics & brand assets", 
       stats: "100+ Monthly",
-      gradient: "from-violet-500 to-purple-600",
-      glowColor: "group-hover:shadow-[0_0_20px_rgba(139,92,246,0.2)]"
+      gradient: "from-[#012869] to-[#f98e09]",
+      glowColor: "group-hover:shadow-[0_0_20px_rgba(1,40,105,0.2)]"
     }
   ];
 
@@ -149,9 +149,9 @@ const OurWork = () => {
 
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full blur-3xl -top-32 sm:-top-48 -left-32 sm:-left-48"></div>
-        <div className="absolute w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-gradient-to-r from-blue-100 to-cyan-100 rounded-full blur-3xl -bottom-32 sm:-bottom-48 -right-32 sm:-right-48"></div>
-        <div className="absolute w-48 h-48 sm:w-64 sm:h-64 bg-gradient-to-r from-orange-100 to-red-100 rounded-full blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-[#63c000]/10 rounded-full blur-3xl -top-32 sm:-top-48 -left-32 sm:-left-48"></div>
+        <div className="absolute w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-[#012869]/10 rounded-full blur-3xl -bottom-32 sm:-bottom-48 -right-32 sm:-right-48"></div>
+        <div className="absolute w-48 h-48 sm:w-64 sm:h-64 bg-[#f98e09]/10 rounded-full blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -163,27 +163,27 @@ const OurWork = () => {
             <img 
               src="/images/LOGO.png" 
               alt="Building India Digital Logo" 
-              className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto object-contain hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(168,85,247,0.2)]"
+              className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto object-contain hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(99,192,0,0.2)]"
             />
           </div>
 
           {/* Trust Badge */}
-          <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 bg-gradient-to-r from-purple-100 to-pink-100 border border-purple-200 rounded-full mb-4 sm:mb-6 hover:scale-105 transition-transform duration-300 shadow-sm">
-            <Award className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600" />
-            <span className="text-purple-700 font-semibold text-sm sm:text-base">Portfolio Showcase</span>
+          <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 bg-gradient-to-r from-[#63c000]/10 to-[#f98e09]/10 border border-[#63c000] rounded-full mb-4 sm:mb-6 hover:scale-105 transition-transform duration-300 shadow-sm">
+            <Award className="w-4 h-4 sm:w-5 sm:h-5 text-[#012869]" />
+            <span className="text-[#012869] font-semibold text-sm sm:text-base">Portfolio Showcase</span>
           </div>
 
           {/* Main Heading */}
-          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 bg-clip-text text-transparent px-4">
+          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#012869] via-[#63c000] to-[#f98e09] bg-clip-text text-transparent px-4">
             Our Featured Work
           </h3>
 
           {/* Description */}
           <div className="max-w-4xl mx-auto space-y-3 sm:space-y-4 px-4">
-            <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg text-[#012869] leading-relaxed">
               At Building India Digital, we deliver comprehensive digital solutions that transform businesses. Our expertise spans custom website development with advanced SEO optimization, mobile app development for iOS and Android, and complete digital marketing services.
             </p>
-            <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg text-[#012869]/80 leading-relaxed">
               We create engaging social media content featuring professional organic photoshoots, viral reels, and custom graphic design. Our data-driven approach delivers measurable results.
             </p>
           </div>
@@ -204,13 +204,13 @@ const OurWork = () => {
                 <div className={`absolute -inset-1 bg-gradient-to-r ${project.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-all duration-700 ${project.borderGlow}`}></div>
                 
                 {/* Main Card */}
-                <div className="relative bg-white rounded-2xl sm:rounded-3xl border border-gray-200 group-hover:border-gray-300 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
+                <div className="relative bg-white rounded-2xl sm:rounded-3xl border-2 border-[#63c000]/20 group-hover:border-[#63c000] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
                   
                   {/* Gradient Overlay on Hover */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-700`}></div>
                   
                   {/* Shimmer Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#63c000]/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
 
                   <div className="relative p-6 sm:p-8 lg:p-10">
                     
@@ -220,10 +220,10 @@ const OurWork = () => {
                         <span className={`inline-block px-4 py-1.5 bg-gradient-to-r ${project.gradient} text-white text-xs sm:text-sm font-bold rounded-full mb-3 shadow-md`}>
                           {project.category}
                         </span>
-                        <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-gray-900 group-hover:to-gray-700 transition-all duration-300">
+                        <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#012869] mb-2 group-hover:bg-gradient-to-r group-hover:from-[#012869] group-hover:to-[#63c000] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                           {project.title}
                         </h4>
-                        <p className="text-xs sm:text-sm text-gray-600 font-medium">{project.type}</p>
+                        <p className="text-xs sm:text-sm text-[#f98e09] font-medium">{project.type}</p>
                       </div>
                       
                       {/* Icon */}
@@ -233,25 +233,25 @@ const OurWork = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="text-sm sm:text-base text-gray-600 mb-6 leading-relaxed">{project.description}</p>
+                    <p className="text-sm sm:text-base text-[#012869]/70 mb-6 leading-relaxed">{project.description}</p>
 
                     {/* Highlights Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mb-6">
                       {project.highlights.map((highlight, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm bg-gray-50 px-3 py-2 rounded-lg border border-gray-100 hover:border-purple-100 transition-colors duration-300">
-                          <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-emerald-500 flex-shrink-0" />
-                          <span className="text-gray-700">{highlight}</span>
+                        <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm bg-[#63c000]/5 px-3 py-2 rounded-lg border border-[#63c000]/20 hover:border-[#63c000] transition-colors duration-300">
+                          <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-[#63c000] flex-shrink-0" />
+                          <span className="text-[#012869]">{highlight}</span>
                         </div>
                       ))}
                     </div>
 
                     {/* Stats Section */}
-                    <div className="flex flex-wrap gap-3 sm:gap-4 mb-6 pb-6 border-b border-gray-100">
+                    <div className="flex flex-wrap gap-3 sm:gap-4 mb-6 pb-6 border-b border-[#63c000]/20">
                       {Object.entries(project.stats).map(([key, value], idx) => (
-                        <div key={idx} className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-lg border border-gray-100 text-xs sm:text-sm">
-                          <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-500 flex-shrink-0" />
-                          <span className="text-gray-600">
-                            {key.charAt(0).toUpperCase() + key.slice(1)}: <span className="font-bold text-gray-900">{value}</span>
+                        <div key={idx} className="flex items-center gap-2 bg-[#f98e09]/5 px-3 py-2 rounded-lg border border-[#f98e09]/20 text-xs sm:text-sm">
+                          <Star className="w-3 h-3 sm:w-4 sm:h-4 text-[#f98e09] flex-shrink-0" />
+                          <span className="text-[#012869]/70">
+                            {key.charAt(0).toUpperCase() + key.slice(1)}: <span className="font-bold text-[#012869]">{value}</span>
                           </span>
                         </div>
                       ))}
@@ -270,7 +270,7 @@ const OurWork = () => {
                         <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"></div>
                       </a>
                     ) : (
-                      <div className="inline-flex items-center gap-2 px-5 sm:px-6 lg:px-8 py-3 sm:py-4 bg-gradient-to-r from-gray-700 to-gray-800 text-white font-bold rounded-xl border border-gray-300 w-full sm:w-auto justify-center text-sm sm:text-base">
+                      <div className="inline-flex items-center gap-2 px-5 sm:px-6 lg:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#012869] to-[#63c000] text-white font-bold rounded-xl border border-[#63c000] w-full sm:w-auto justify-center text-sm sm:text-base">
                         <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                         <span>Multiple Apps Delivered</span>
                       </div>
@@ -290,14 +290,14 @@ const OurWork = () => {
         {/* Digital Marketing Services */}
         <div className="mb-16 sm:mb-20 lg:mb-24">
           <div className="text-center mb-10 sm:mb-12 lg:mb-16">
-            <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 bg-gradient-to-r from-blue-100 to-purple-100 border border-blue-200 rounded-full mb-4 sm:mb-6 hover:scale-105 transition-transform duration-300 shadow-sm">
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
-              <span className="text-blue-700 font-semibold text-sm sm:text-base">Digital Marketing Services</span>
+            <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 bg-gradient-to-r from-[#012869]/10 to-[#63c000]/10 border border-[#012869] rounded-full mb-4 sm:mb-6 hover:scale-105 transition-transform duration-300 shadow-sm">
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-[#012869]" />
+              <span className="text-[#012869] font-semibold text-sm sm:text-base">Digital Marketing Services</span>
             </div>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent px-4">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#012869] to-[#63c000] bg-clip-text text-transparent px-4">
               Complete Digital Marketing Solutions
             </h3>
-            <p className="text-sm sm:text-base lg:text-lg text-gray-700 max-w-3xl mx-auto px-4">
+            <p className="text-sm sm:text-base lg:text-lg text-[#012869]/80 max-w-3xl mx-auto px-4">
               Google Ads PPC campaigns, GMB optimization, organic photoshoots, viral reels, and social media marketing that drives real ROI
             </p>
           </div>
@@ -308,7 +308,7 @@ const OurWork = () => {
               return (
                 <div 
                   key={idx} 
-                  className={`group relative bg-white p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border border-gray-200 hover:border-gray-300 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${service.glowColor}`}
+                  className={`group relative bg-white p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border-2 border-[#63c000]/20 hover:border-[#63c000] shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${service.glowColor}`}
                 >
                   {/* Glow Effect */}
                   <div className={`absolute -inset-0.5 bg-gradient-to-r ${service.gradient} rounded-xl sm:rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
@@ -319,19 +319,19 @@ const OurWork = () => {
                       <ServiceIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />
                     </div>
                     
-                    <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-gray-900 group-hover:to-gray-700 transition-all duration-300">
+                    <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-[#012869] mb-2 sm:mb-3 group-hover:bg-gradient-to-r group-hover:from-[#012869] group-hover:to-[#63c000] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                       {service.title}
                     </h4>
-                    <p className="text-xs sm:text-sm lg:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed">{service.desc}</p>
+                    <p className="text-xs sm:text-sm lg:text-base text-[#012869]/70 mb-3 sm:mb-4 leading-relaxed">{service.desc}</p>
                     
-                    <div className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-lg border border-gray-100 w-fit">
-                      <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-500" />
-                      <span className="text-xs sm:text-sm font-bold text-purple-600">{service.stats}</span>
+                    <div className="flex items-center gap-2 bg-[#f98e09]/10 px-3 py-2 rounded-lg border border-[#f98e09]/30 w-fit">
+                      <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-[#f98e09]" />
+                      <span className="text-xs sm:text-sm font-bold text-[#012869]">{service.stats}</span>
                     </div>
                   </div>
 
                   {/* Shimmer Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-xl sm:rounded-2xl"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#63c000]/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-xl sm:rounded-2xl"></div>
                 </div>
               );
             })}
@@ -340,12 +340,12 @@ const OurWork = () => {
 
         {/* Social Media Section */}
         <div className="text-center">
-          <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-10 sm:mb-12"></div>
+          <div className="h-px bg-gradient-to-r from-transparent via-[#63c000] to-transparent mb-10 sm:mb-12"></div>
           
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent px-4">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#f98e09] to-[#012869] bg-clip-text text-transparent px-4">
             Follow Our Digital Journey
           </h3>
-          <p className="text-sm sm:text-base lg:text-lg text-gray-700 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
+          <p className="text-sm sm:text-base lg:text-lg text-[#012869]/80 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
             Stay updated with our latest projects, SEO tips, and digital marketing insights
           </p>
 
